@@ -4,10 +4,14 @@
 class BestOpenSeats
   def get_best_open_seats(input_json, req_num_of_seats)
     arr = []
+    new_arr = []
+    mid_of_arr = 0
+    mid_of_arr = arr.length/2
     input_json[:seats].each do |val|
       arr << val[1][:id] if val[1][:status] == 'AVAILABLE'
     end
-    arr.sort.first(req_num_of_seats)
+    new_arr = arr.sort
+    new_arr[mid_of_arr..mid_of_arr + req_num_of_seats - 1]
   end
 end
 
@@ -23,7 +27,7 @@ input_json = {
       "id": 'a1',
       "row": 'a',
       "column": 1,
-      "status": 'AVAILABLE'
+      "status": 'NOT AVAILABLE'
     },
     "b5": {
       "id": 'b5',
@@ -35,7 +39,7 @@ input_json = {
       "id": 'h7',
       "row": 'h',
       "column": 7,
-      "status": 'NOT AVAILABLE'
+      "status": 'AVAILABLE'
     },
     "m7": {
       "id": 'm7',
@@ -46,4 +50,4 @@ input_json = {
   }
 }
 
-p BestOpenSeats.new.get_best_open_seats(input_json, 2)
+p BestOpenSeats.new.get_best_open_seats(input_json, 1)
