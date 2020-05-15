@@ -2,10 +2,10 @@ To install rspec:
 gem install rspec
 
 To run rspec:
-rspec best_open_seats_spec.rb
+rspec number_type_spec.rb
 
 To run ruby program:
-ruby best_open_seats.b
+ruby number_type.rb 4
 
 To run rubocop:
 rubocop
